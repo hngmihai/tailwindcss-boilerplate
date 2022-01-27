@@ -7,7 +7,7 @@
 		"main": "index.js",
 		"repository": {
 				"type": "git",
-				"url": "git public URL"
+				"url": "https://github.com/hngmihai/tailwindcss-boilerplate.git"
 		},
 		"scripts": {
 				"test": "echo \"Error: no test specified\" && exit 1",
