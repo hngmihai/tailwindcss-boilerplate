@@ -1,0 +1,39 @@
+{
+		"name": "custom-wp-theme-tailwindcss-boilerplate",
+		"version": "1.0.0",
+		"description": "Boilerplate (bare-bones) for custom WordPress theme development with Tailwind CSS and browsersync.",
+		"author": "Mihai Hanga",
+		"license": "MIT",
+		"main": "index.js",
+		"repository": {
+				"type": "git",
+				"url": "git public URL"
+		},
+		"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1",
+				"production:css-app": "tailwindcss -i ./src/css/style.css -o ./assets/css/style.css --postcss --minify",
+				"production:js": "./node_modules/.bin/esbuild ./src/js/main.js --bundle --outfile=./assets/js/main.js --minify",
+				"dev:css-app": "tailwindcss -i ./src/css/style.css -o ./assets/css/style.css --postcss",
+				"dev:js": "./node_modules/.bin/esbuild ./src/js/main.js --bundle --outfile=./assets/js/main.js",
+				"watch:css-app": "tailwindcss -i ./src/css/style.css -o ./assets/css/style.css --postcss --watch",
+				"watch:js": "./node_modules/.bin/esbuild ./src/js/main.js --bundle --outfile=./assets/js/main.js --watch",
+				"production": "cross-env NODE_ENV=production concurrently \"npm run production:css-app\" \"npm run production:js\"",
+				"dev": "cross-env NODE_ENV=development concurrently \"npm run dev:css-app\" \"npm run dev:js\"",
+				"watch": "cross-env NODE_ENV=development concurrently \"npm run watch:css-app\" \"npm run watch:js\"",
+				"browser-sync": "cross-env NODE_ENV=development browser-sync start --proxy \"k2test2.local\" --host=\"k2test2.local\" --no-inject-changes --files=\"./\"",
+				"watch-sync": "concurrently \"npm run browser-sync\" \"npm run watch\""
+		},
+		"devDependencies": {
+				"autoprefixer": "^10.4.0",
+				"browser-sync": "^2.26.14",
+				"concurrently": "^6.2.1",
+				"cross-env": "^6.0.3",
+				"esbuild": "^0.12.24",
+				"postcss": "^8.4.4",
+				"postcss-import": "^14.0.0",
+				"postcss-nested": "^5.0.3",
+				"postcss-nested-ancestors": "^2.0.0",
+				"resolve-url-loader": "^3.1.2",
+				"tailwindcss": "^3.0.0"
+		}
+}
